@@ -1,0 +1,85 @@
+:root {
+  /* Shared tokens (not theme-specific) */
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Spacing (4px base scale) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Typography */
+  --font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-size-base: 16px;
+  --font-size-title: 24px;
+  --line-height: 1.5;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Default to dark theme */
+:root,
+[data-theme="dark"] {
+  /* Colors */
+  --color-bg: #0f1220; /* deep indigo */
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-on-dark: #f8fafc;
+  --color-text-muted: #94a3b8; /* slate-400 */
+  --color-border: #1f293780; /* translucent border on dark */
+  --color-input-bg: #ffffff;
+  --color-accent: #5b21b6; /* violet-800 */
+  --color-accent-contrast: #ffffff;
+  --color-focus: #7c3aed; /* violet-600 */
+
+  /* Gradients */
+  --gradient-bg: radial-gradient(
+      1200px 600px at 10% -10%,
+      #7c3aed33,
+      transparent
+    ),
+    radial-gradient(1000px 800px at 110% 10%, #06b6d433, transparent),
+    radial-gradient(900px 500px at -10% 110%, #22d3ee22, transparent),
+    linear-gradient(180deg, #0b1020 0%, #0f1220 100%);
+  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+
+  /* Glass tokens */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --color-bg: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-on-dark: #0f172a;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-input-bg: #ffffff;
+  --color-accent: #111827;
+  --color-accent-contrast: #ffffff;
+  --color-focus: #2563eb; /* blue-600 */
+
+  --gradient-bg: radial-gradient(
+      1200px 600px at 10% -10%,
+      #8b5cf622,
+      transparent
+    ),
+    radial-gradient(1000px 800px at 110% 10%, #06b6d422, transparent),
+    linear-gradient(180deg, #fafafa 0%, #f5f7fb 100%);
+  --gradient-accent: linear-gradient(135deg, #111827 0%, #4b5563 100%);
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: 1px solid rgba(2, 6, 23, 0.06);
+}
