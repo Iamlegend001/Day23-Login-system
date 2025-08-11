@@ -22,4 +22,4 @@ const userSchema = new mongoose.Schema(
 
 const userModel = mongoose.model("user", userSchema);
 
-module.exports = { userModel };
+module.exports = userModel; // Export directly so controller can use findOne()

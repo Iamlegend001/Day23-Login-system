@@ -1,0 +1,306 @@
+@import url("/styles/variables.css");
+
+/* Mobile-first base reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  background: var(--gradient-bg);
+  color: var(--color-text-on-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: var(--space-4);
+}
+
+/* Header */
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+}
+.brand__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.brand__logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--gradient-accent);
+  box-shadow: var(--shadow-sm);
+}
+.brand__title {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.theme-toggle {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: var(--glass-bg);
+  color: var(--color-text-on-dark);
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Layout with sidebar (mobile-first = stacked) */
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.sidebar {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-3);
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+  position: sticky;
+  top: var(--space-4);
+  max-height: calc(100dvh - 120px);
+  overflow: auto;
+}
+
+.sidebar .search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: var(--space-3);
+}
+.sidebar .search input {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  width: 100%;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.sidebar__list {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  max-height: 40dvh;
+  overflow: auto;
+}
+
+.thread {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-on-dark);
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.thread:hover {
+  background: color-mix(in srgb, var(--glass-bg) 60%, transparent);
+}
+.thread[aria-current="true"] {
+  border-color: var(--color-border);
+  background: color-mix(in srgb, var(--glass-bg) 80%, transparent);
+}
+
+/* Messages area */
+.chat {
+  display: block;
+}
+
+.chat__inner {
+  max-width: 800px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.messages {
+  overflow: visible;
+  padding-bottom: 140px;
+}
+
+.msg {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+.msg__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  flex: 0 0 28px;
+  background: var(--gradient-accent);
+}
+.msg__bubble {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-on-dark);
+  box-shadow: var(--shadow-sm);
+  max-width: 80%;
+}
+.msg--user {
+  justify-content: flex-end;
+}
+.msg--user .msg__bubble {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.msg--assistant .msg__avatar {
+  background: var(--gradient-accent);
+}
+
+/* Composer */
+.composer {
+  position: sticky;
+  bottom: 0;
+  padding: var(--space-3);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2));
+  z-index: 30;
+}
+
+.composer__form {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.composer__input {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-on-dark);
+  padding: var(--space-3);
+  flex: 1 1 auto;
+  resize: none;
+}
+
+.button {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  background: var(--gradient-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--color-text-on-dark);
+  border: 1px solid var(--color-border);
+}
+
+.composer__send {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  padding: 0;
+}
+
+/* Overlay + hidden sidebar on mobile */
+[data-sidebar] {
+  position: relative;
+  z-index: 20;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 15;
+}
+.overlay[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 767px) {
+  [data-sidebar] {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    height: calc(100dvh - 64px);
+    width: 84%;
+    max-width: 320px;
+    transform: translateX(-110%);
+  }
+  [data-sidebar][data-open="true"] {
+    transform: translateX(0);
+  }
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-8);
+  }
+  .app {
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+  }
+  .msg__bubble {
+    max-width: 70%;
+  }
+}

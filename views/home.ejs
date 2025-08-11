@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="/styles/theme.css" />
+  </head>
+  <body class="page">
+    <header class="container">
+      <div class="brand" aria-hidden="false">
+        <div class="brand__left">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Open sidebar"
+            data-sidebar-toggle
+          >
+            ☰
+          </button>
+          <div class="brand__logo"></div>
+          <div class="brand__title">Shreayan Chat</div>
+        </div>
+        <button class="theme-toggle" type="button" data-toggle-theme>
+          Light mode
+        </button>
+      </div>
+    </header>
+
+    <main class="container app">
+      <aside class="sidebar" aria-label="Previous chats" data-sidebar>
+        <div class="sidebar__header">
+          <strong>Chats</strong>
+          <button class="theme-toggle" type="button" data-new-chat>New</button>
+        </div>
+        <div class="search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M15.5 15.5L21 21"
+              stroke="#94a3b8"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="10.5"
+              cy="10.5"
+              r="6.5"
+              stroke="#94a3b8"
+              stroke-width="1.5"
+            />
+          </svg>
+          <input
+            type="search"
+            placeholder="Search chats"
+            aria-label="Search chats"
+          />
+        </div>
+        <ul class="sidebar__list" data-thread-list>
+          <li>
+            <button class="thread" aria-current="true" data-thread-id="1">
+              Getting started
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <section class="chat">
+        <div class="chat__inner">
+          <div class="messages" data-chat-list>
+            <div class="msg">
+              <div class="msg__avatar"></div>
+              <div class="msg__bubble">Hello! Ask me anything.</div>
+            </div>
+          </div>
+
+          <div class="composer">
+            <form class="composer__form" data-chat-form>
+              <textarea
+                class="composer__input"
+                rows="1"
+                placeholder="Message ChatGPT"
+                aria-label="Message"
+                data-chat-input
+                autocomplete="off"
+              ></textarea>
+              <button
+                class="button composer__send"
+                type="submit"
+                aria-label="Send"
+              >
+                ▶
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="overlay" data-overlay></div>
+
+    <script src="/script/theme.js" defer></script>
+    <script src="/script/chat.js" defer></script>
+  </body>
+</html>
